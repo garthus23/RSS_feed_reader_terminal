@@ -1,9 +1,10 @@
 #!/usr/bin/python3
+# rss feed teminal reader
 
 import feedparser
 
 
-feedlist = {'footmercato': 'https://www.footmercato.net/flux-rss',
+feedlist = {'zdnet': 'https://www.zdnet.com/news/rss.xml',
             'espn': 'https://www.espn.com/espn/rss/news',
             }
 
@@ -34,7 +35,10 @@ while True:
             break
         try:
             summary = feed[int(x)]['summary']
+            link = feed[int(x)]['link']
+            print("\n{}\n".format(feed[int(x)]['title']))
             print("\n{}".format(summary))
+            print("\n{}".format(link))
             wait = input("\nPress Enter to continue.")
         except:
             exit
